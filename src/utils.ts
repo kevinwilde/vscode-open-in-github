@@ -6,7 +6,7 @@ import * as absolute from 'absolute';
 import * as findUp from 'find-up';
 import * as path from 'path';
 import * as pify from 'pify';
-import * as simpleGit from 'simple-git';
+import simpleGit from 'simple-git';
 import * as vscode from 'vscode';
 import * as Commands from './commands';
 import Config from './config';
@@ -17,7 +17,7 @@ const Utils = {
 
   initCommands ( context: vscode.ExtensionContext ) {
 
-    const {commands} = vscode.extensions.getExtension ( 'fabiospampinato.vscode-open-in-github' ).packageJSON.contributes;
+    const {commands} = vscode.extensions.getExtension ( 'kevinwilde.vscode-open-in-github' ).packageJSON.contributes;
 
     commands.forEach ( ({ command, title }) => {
 
@@ -75,9 +75,17 @@ const Utils = {
 
     },
 
-    async getHash ( git ) {
+    async getHash ( git, branch: 'master' | 'working tree' ) {
 
-      return ( await git.revparse ([ 'HEAD' ]) ).trim ();
+      const config = Config.get ();
+
+      if (branch === 'master') {
+
+        return ( await git.revparse ([ '--short', config.remote.branch ]) ).trim ();
+
+      }
+      
+      return ( await git.revparse ([ '--short', 'HEAD' ]) ).trim ();
 
     },
 
@@ -90,18 +98,6 @@ const Utils = {
       if ( !rootPath ) return false;
 
       return await Utils.folder.getWrapperPathOf ( rootPath, editorPath || rootPath, '.git' );
-
-    },
-
-    async getBranch ( git ) {
-
-      const config = Config.get ();
-
-      if ( !config.useLocalBranch ) return config.remote.branch;
-
-      const branches = await git.branch ();
-
-      return branches.current;
 
     },
 

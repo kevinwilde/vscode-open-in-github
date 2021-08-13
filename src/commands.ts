@@ -7,82 +7,117 @@ import URL from './url';
 
 function openProject () {
 
-  return URL.open ();
+  return URL.open ({ page: 'home' });
 
 }
 
-function openIssues () {
+// function openIssues () {
 
-  return URL.open ( false, false, 'issues' );
+//   return URL.open ({ page: 'issues' });
 
-}
+// }
 
-function openPullRequests () {
+// function openPullRequests () {
 
-  return URL.open ( false, false, 'pulls' );
+//   return URL.open ({ page: 'pulls' });
 
-}
+// }
 
-function openActions () {
+// function openActions () {
 
-  return URL.open ( false, false, 'actions' );
+//   return URL.open ({ page: 'actions' });
 
-}
+// }
 
-function openProjects () {
+// function openProjects () {
 
-  return URL.open ( false, false, 'projects' );
+//   return URL.open ({ page: 'projects' });
 
-}
+// }
 
-function openWiki () {
+// function openWiki () {
 
-  return URL.open ( false, false, 'wiki' );
+//   return URL.open ({ page: 'wiki' });
 
-}
+// }
 
-function openSettings () {
+// function openSettings () {
 
-  return URL.open ( false, false, 'settings' );
+//   return URL.open ({ page: 'settings' });
 
-}
+// }
 
-function openReleases () {
+// function openReleases () {
 
-  return URL.open ( false, false, 'releases' );
+//   return URL.open ({ page: 'releases' });
 
-}
+// }
 
 function openFile () {
 
-  return URL.open ( true, false, 'blob' );
+  return URL.open ({ view: 'blob', branch: 'working tree' });
 
 }
 
 function openFileHistory () {
 
-  return URL.open ( true, false, 'commits' );
+  return URL.open ({ view: 'commits', branch: 'working tree' });
 
 }
 
 function openFileBlame () {
 
-  return URL.open ( true, false, 'blame' );
+  return URL.open ({ view: 'blame', branch: 'working tree' });
 
 }
 
-function openFilePermalink () {
+function copyFileLink () {
 
-  return URL.open ( true, true, 'blob' );
+  return URL.copy ({ view: 'blob', branch: 'working tree' });
 
 }
 
-function copyFilePermalink () {
+function openFileOnMaster () {
 
-  return URL.copy ( true, true, 'blob' );
+  return URL.open ({ view: 'blob', branch: 'master' });
+
+}
+
+function openFileHistoryOnMaster () {
+
+  return URL.open ({ view: 'commits', branch: 'master' });
+
+}
+
+function openFileBlameOnMaster () {
+
+  return URL.open ({ view: 'blame', branch: 'master' });
+
+}
+
+function copyFileLinkOnMaster () {
+
+  return URL.copy ({ view: 'blob', branch: 'master' });
 
 }
 
 /* EXPORT */
 
-export {openProject, openIssues, openPullRequests, openActions, openProjects, openWiki, openSettings, openReleases, openFile, openFileHistory, openFileBlame, openFilePermalink, copyFilePermalink};
+export {
+  openProject,
+  // openIssues,
+  // openPullRequests,
+  // openActions,
+  // openProjects,
+  // openWiki,
+  // openSettings,
+  // openReleases,
+  openFile,
+  openFileHistory,
+  openFileBlame,
+  copyFileLink,
+  openFileOnMaster,
+  openFileHistoryOnMaster,
+  openFileBlameOnMaster,
+  copyFileLinkOnMaster,
+};

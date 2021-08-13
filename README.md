@@ -23,16 +23,13 @@ It adds 12 commands to the command palette:
 ```js
 'Open in GitHub: Project' // Open the current project in GitHub
 'Open in GitHub: File' // Open the current file in GitHub
-'Open in GitHub: File Blame' // Open the current file's blame in GitHub
 'Open in GitHub: File History' // Open the current file's history in GitHub
-'Open in GitHub: File Permalink' // Open the current file's permalink in GitHub
-'Open in GitHub: Issues' // Open the current project's issues in GitHub
-'Open in GitHub: Pull Requests' // Open the current project's pull requests in GitHub
-'Open in GitHub: Releases' // Open the current project's releases in GitHub
-'Open in GitHub: Actions' // Open the current project's actions in GitHub
-'Open in GitHub: Projects' // Open the current project's projects in GitHub
-'Open in GitHub: Wiki' // Open the current project's wiki in GitHub
-'Open in GitHub: Settings' // Open the current project's settings in GitHub
+'Open in GitHub: File Blame' // Open the current file's blame in GitHub
+'Open in GitHub: Copy File Link' // Copy a link to the current file on GitHub
+'Open in GitHub: File On Master' // Open the current file on master in GitHub
+'Open in GitHub: File History On Master' // Open the current file's history on master in GitHub
+'Open in GitHub: File Blame On Master' // Open the current file's blame on master in GitHub
+'Open in GitHub: Copy File Link On Master' // Copy a link to the current file on master on GitHub
 ```
 
 ## Settings
@@ -41,10 +38,7 @@ It adds 12 commands to the command palette:
 {
   "openInGitHub.github.domain": "github.com", // Custom GitHub domain
   "openInGitHub.remote.name": "origin", // Name of the remote repository
-  "openInGitHub.remote.branch": "master", // Name of the remote branch
-  "openInGitHub.useLocalBranch": true, // Use the local branch instead of the fixed remote branch
-  "openInGitHub.useLocalRange": true, // Highlight the local selection range, if there's one
-  "openInGitHub.useLocalLine": false // Highlight the local line if there's no selection range
+  "openInGitHub.remote.branch": "master" // Name of the remote branch
 }
 ```
 
